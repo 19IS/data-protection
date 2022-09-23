@@ -20,7 +20,7 @@ def decode_message(message: list, shift: int, alphabet: list) -> str:
 
 def run():
     russian_alphabet = list('абвгдеёжзийклмнопрстуфхцчшщъыьэюя')
-    message = Prompt.ask("[bold blue]Введите сообщение[/]")
+    message = Prompt.ask("[bold blue]Введите сообщение[/]").lower()
     mode = Prompt.ask("[bold blue]Выберите действие для сообщения[/]", choices=["зашифровать", "расшифровать"])
     
     if mode == "зашифровать":
