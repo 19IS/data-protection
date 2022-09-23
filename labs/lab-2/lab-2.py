@@ -53,7 +53,7 @@ def run():
         for iteration in range(len(russian_alphabet)):
             user_input = Prompt.ask(f"[bold blue]Данное сообщение ({decode_message(message=message, shift=iteration, alphabet=russian_alphabet)}) является корректым?[/]", choices=['да', 'нет'])
             if user_input.lower() in ['да', 'д']:
-                print(f"[bold green]Завешраю работу![/]")
+                print(f"[bold green]Завершаю работу![/]")
                 break
             elif user_input.lower() in ['нет', 'н']:
                 continue
