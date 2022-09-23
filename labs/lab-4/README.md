@@ -12,3 +12,4 @@ python labs/lab-4/lab-4.py
 ```
 
 ## Примеры работы скрипта:
+![image](https://user-images.githubusercontent.com/60512214/192021761-12ed0c5a-8892-46e2-b111-4d97b5df255f.png)
