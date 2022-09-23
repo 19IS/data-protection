@@ -11,4 +11,5 @@ python labs/lab-3/lab-3.py
 ```
 
 ## Примеры работы скрипта:
+![image](https://user-images.githubusercontent.com/60512214/191979736-882ffda6-906b-4187-a5f0-7f98ff34afd9.png)
 
