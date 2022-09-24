@@ -1,3 +1,4 @@
+import pandas as pd
 from rich import print
 from rich.prompt import Prompt
 
@@ -49,14 +50,11 @@ def run():
             print(f"[bold red]Алгоритм шифрования отработал некорректно! Исходное сообщение не совпадает с расшифрованным.[/]")
             
     elif mode == "расшифровать":
-        # щъзшмсарс р цлрх рп цщхцйхгэ щчцщцицй пзбръг рхьцшфзюрр еъц щруцйгм фмъцлг, ъц мщъд цэшзхз лцтыфмхъз (9-я итерация будет верной)
+        print(f"[bold blue]Варианты расшифровок сообщения:[/]")
+        # щъзшмсарс р цлрх рп цщхцйхгэ щчцщцицй пзбръг рхьцшфзюрр еъц щруцйгм фмъцлг, ъц мщъд цэшзхз лцтыфмхъз (8-я итерация будет верной)
         for iteration in range(len(russian_alphabet)):
-            user_input = Prompt.ask(f"[bold blue]Данное сообщение ({decode_message(message=message, shift=iteration, alphabet=russian_alphabet)}) является корректым?[/]", choices=['да', 'нет'])
-            if user_input.lower() in ['да', 'д']:
-                print(f"[bold green]Завершаю работу![/]")
-                break
-            elif user_input.lower() in ['нет', 'н']:
-                continue
+            decoded_variant = decode_message(message=message, shift=iteration, alphabet=russian_alphabet)
+            print(f"{iteration}: {decoded_variant}")
                 
                 
 if __name__ == "__main__":
