@@ -11,7 +11,7 @@ RUSSIAN_ALPHABET = list('абвгдеёжзийклмнопрстуфхцчшщ�
 # Функция для кодирования исходного сообщения
 def encode_message(message: str, key: str) -> str:
     encoded_message = ''
-    
+    key = list(dict.fromkeys(key))
     for index in range(len(message)):
         if message[index] in RUSSIAN_ALPHABET:
             message_symbol_index = RUSSIAN_ALPHABET.index(message[index])
@@ -25,7 +25,7 @@ def encode_message(message: str, key: str) -> str:
 # Функция для расшифровки исходного сообщеня
 def decode_message(message: str, key: str) -> str:
     decoded_message = ''
-    
+    key = list(dict.fromkeys(key))
     for index in range(len(message)):
         if message[index] in RUSSIAN_ALPHABET:
             message_symbol_index = RUSSIAN_ALPHABET.index(message[index])
