@@ -8,4 +8,5 @@
 python labs/lab-5/lab-5.py
 ```
 
-## Примеры работы скрипта:
+## Пример работы скрипта:
+![image](https://user-images.githubusercontent.com/60512214/196002803-1a835acb-b5ed-4e3b-9730-bfaf40f75b4c.png)
