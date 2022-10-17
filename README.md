@@ -7,7 +7,7 @@
  ## Подготовка
 1. Склонируете репозиторий (или скачайте архив репозитория):
 ```shell
-git clone git@github.com:Hunter-99/Data-Protection.git
+git clone git@github.com:Hunter-99/data-protection.git
 ```
 2. Создайте виртуальное окружение:
 ```shell

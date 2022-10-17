@@ -7,7 +7,7 @@
 - Ключ: требования
 ### Запуск скрипта:
 ```shell
-python labs/lab-3/lab-3.py
+python labs/lab_3/lab_3.py
 ```
 
 ## Примеры работы скрипта:

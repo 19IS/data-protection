@@ -9,7 +9,7 @@
     ```
 ### Запуск скрипта:
 ```shell
-python labs/lab-2/lab-2.py
+python labs/lab_2/lab_2.py
 ```
 
 ## Примеры работы скрипта:

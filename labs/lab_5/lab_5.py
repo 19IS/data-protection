@@ -4,9 +4,14 @@ import sympy
 from rich import print
 from rich.prompt import Prompt
 
+from labs.lab_2.lab_2 import (
+    encode_message,
+    decode_message
+)
+
 
 # Функция для шифрования сообщения
-def encode_message(message: list, public_key: dict) -> list:
+def encode_message_rsa(message: list, public_key: dict) -> list:
     encoded_message = [
         pow(ord(item), public_key['public_exp'], public_key['module'])
         for item in message
@@ -15,7 +20,7 @@ def encode_message(message: list, public_key: dict) -> list:
 
 
 # Функция для расшифрования сообщения
-def decode_message(encoded_message: list, private_key: dict) -> list:
+def decode_message_rsa(encoded_message: list, private_key: dict) -> list:
     decoded_message = [
         chr(pow(item, private_key['private_exp'], private_key['module']))
         for item in encoded_message
@@ -74,8 +79,13 @@ def run():
     message = Prompt.ask(
         prompt="[bold blue]Введите сообщение для шифрования[/]",
         default="Привет Андрей!"
+    ).lower()
+    # Кодируем исходное сообщение симметричным алгоритмом шифрования (Шифр Цезаря, сдвиг - 14)
+    message = encode_message(
+        message=message,
+        shift=14
     )
-
+    print(f"Зашифрованное сообщение симметричным алгоритмом (Шифр Цезаря): {message}")
     p, q = generate_random_prime_numbers()
 
     print(f"Первое случайное простое число (p): {p}")
@@ -85,11 +95,20 @@ def run():
     print(f"Публичный ключ: {public_key}")
     print(f"Секретный ключ: {private_key}")
 
-    encoded_message = encode_message(message, public_key)
-    print(f"Зашифрованное сообщение: {''.join([str(item) for item in encoded_message])}")
+    encoded_message = encode_message_rsa(message, public_key)
+    print(f"Зашифрованное сообщение ассиметричным алгоритмом: {''.join([str(item) for item in encoded_message])}")
 
-    decoded_message = decode_message(encoded_message, private_key)
-    print(f"Расшифрованное сообщение: {''.join([str(item) for item in decoded_message])}")
+    decoded_message = decode_message_rsa(encoded_message, private_key)
+    decoded_message = ''.join([str(item) for item in decoded_message])
+
+    print(f"Расшифрованное сообщение ассиметричным алгоритмом: {decoded_message}")
+
+    decoded_message = decode_message(
+        message=decoded_message,
+        shift=14
+    )
+
+    print(f"Расшифрованное сообщение симметричным алгоритмом: {decoded_message}")
 
 
 if __name__ == "__main__":

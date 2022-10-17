@@ -5,7 +5,7 @@
 
 ### Запуск скрипта:
 ```shell
-python labs/lab-5/lab-5.py
+python labs/lab_5/lab_5.py
 ```
 
 ## Пример работы скрипта:

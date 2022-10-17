@@ -8,7 +8,7 @@
 
 ### Запуск скрипта:
 ```shell
-python labs/lab-4/lab-4.py
+python labs/lab_4/lab_4.py
 ```
 
 ## Примеры работы скрипта:
