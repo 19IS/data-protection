@@ -46,7 +46,7 @@ def generate_key_pair(p: int, q: int) -> tuple:
     e = None
     while True:
         random_prime_number = generate_random_prime_numbers(1)
-        if math.gcd(random_prime_number, euler_function):
+        if math.gcd(random_prime_number, euler_function) == 1:
             e = random_prime_number
             break
     # Вычисляем секретную экспоненту
