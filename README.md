@@ -39,4 +39,3 @@ python -m labs.lab_n.lab_n
 ```shell
 python -m labs.lab_3.lab_3
 ```
-
