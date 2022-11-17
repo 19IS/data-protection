@@ -8,10 +8,8 @@ def run_tests():
         'SHA-2 (Secure Hash Algo!@#!@#r#ithm 2,+=) is a&*_^&*%%E$^@#$!@#!@$@#@%@#$!@#!@#!@%()+_)(*&^%$#@!~ set of cryptographic hash functions designed by the United States National Security Agency (NSA)',
         '!@#%^*+_)(*_()&*I^U%Y$#@&^%$#@!~',
         '!@#%^*+_)(*_()&asjkdjfklasdfjdfjkkwerkfjqwopdfjeruicmasdfjklasdfgjkl;*   as;jasjqwepweionasdfgnasdfjklasdfnzxcvjkl; hjkasdJKLFJQWJIOER89123348IO1NHV I^U%Y$#@&^%$#@!~',
-        'пфывафывафыв'
+        'приветFylhtАндрейцукйцукйцукйц1234123412341?(???(?%:()_)_^&*)_'
     ]
-    # D7AE219D61D3F5869F3BFF6C7964077C88EA77528157A16CC602C0859322F58
-    # D7AE219D61D3F5869F3BFF6C7964077C88EA77528157A16CC602C0859322F58
     for iteration, test_message in enumerate(test_messages):
         try:
             my_sha256_hash = generate_sha256_value(test_message)
