@@ -3,17 +3,17 @@ import sympy
 
 
 # Функция для нахождения суммы n последовательностей бит
-def binary_sum(*args):
+def binary_sum(*args) -> str:
     return format(sum([int(val, 2) for val in args]), '032b')[-32:]
 
 
 # Функция перестановки последних n битов бинарного значения слова в начало
-def right_rotate(binary_word: str, rotation_value: int):
+def right_rotate(binary_word: str, rotation_value: int) -> str:
     return binary_word[len(binary_word) - rotation_value:] + binary_word[:len(binary_word) - rotation_value]
 
 
 # Функция смещения бинарного значения слова на n позиций
-def right_shift(binary_word: str, shift_value: int):
+def right_shift(binary_word: str, shift_value: int) -> str:
     return '0' * shift_value + binary_word[:len(binary_word) - shift_value]
 
 

@@ -31,32 +31,30 @@ def preprocess_message(message: str) -> str:
 
 
 # Функция для создания очереди сообщений (w)
-def get_message_chunk_queue(preprocessed_message_chunk: str):
+def get_message_chunk_queue(preprocessed_message_chunk: str) -> list[str]:
     # Копирование входных данных из шага 1 в новый массив, где каждая запись является 32-битным словом:
     w = [preprocessed_message_chunk[index:index + 32] for index in range(0, len(preprocessed_message_chunk), 32)]
     # Добавление ещё 48 слов, инициализированных нулями, чтобы получить массив w[0…63]:
     w += ['0' * 32 for _ in range(48)]
     # Изменение нулевых индексов в конце массива
     for index in range(16, 64):
-        s0 = logic_xor(logic_xor(right_rotate(w[index - 15], 7), right_rotate(w[index - 15], 18)),
-                       right_shift(w[index - 15], 3))
-        s1 = logic_xor(logic_xor(right_rotate(w[index - 2], 17), right_rotate(w[index - 2], 19)),
-                       right_shift(w[index - 2], 10))
+        s0 = logic_xor(right_rotate(w[index - 15], 7), right_rotate(w[index - 15], 18), right_shift(w[index - 15], 3))
+        s1 = logic_xor(right_rotate(w[index - 2], 17), right_rotate(w[index - 2], 19), right_shift(w[index - 2], 10))
 
         w[index] = binary_sum(w[index - 16], s0, w[index - 7], s1)
 
     return w
 
 
-def get_compressed_constrains(hash_constrains, round_constrains, message_chunk_queue):
+def get_compressed_constrains(hash_constrains: list[str], round_constrains: list[str], message_chunk_queue: str) -> list[str]:
     a, b, c, d, e, f, g, h = hash_constrains
 
     for i in range(64):
-        s1 = logic_xor(logic_xor(right_rotate(e, 6), right_rotate(e, 11)), right_rotate(e, 25))
+        s1 = logic_xor(right_rotate(e, 6), right_rotate(e, 11), right_rotate(e, 25))
         ch = logic_xor(logic_and(e, f), logic_and(logic_not(e), g))
         temp1 = binary_sum(h, s1, ch, round_constrains[i], message_chunk_queue[i])
-        s0 = logic_xor(logic_xor(right_rotate(a, 2), right_rotate(a, 13)), right_rotate(a, 22))
-        maj = logic_xor(logic_xor(logic_and(a, b), logic_and(a, c)), logic_and(b, c))
+        s0 = logic_xor(right_rotate(a, 2), right_rotate(a, 13), right_rotate(a, 22))
+        maj = logic_xor(logic_and(a, b), logic_and(a, c), logic_and(b, c))
         temp2 = binary_sum(s0, maj)
 
         h = g[-32:].rjust(32, '0')
@@ -74,7 +72,7 @@ def get_compressed_constrains(hash_constrains, round_constrains, message_chunk_q
     ]
 
 
-def generate_sha256_value(message: str = None):
+def generate_sha256_value(message: str = None) -> str:
     if not message:
         message = Prompt.ask(
             prompt="[bold blue]Введите сообщение для шифрования[/]",
@@ -121,7 +119,12 @@ def generate_sha256_value(message: str = None):
         ]
 
     # Шаг 8. Получение финального хеша
-    sha256_hash = ''.join([format(int(hash_constraint, 2), '08x') for hash_constraint in hash_constrains]).upper()
+    sha256_hash = ''.join(
+        [
+            format(int(hash_constraint, 2), '08x')
+            for hash_constraint in hash_constrains
+        ]
+    ).upper()
 
     return sha256_hash
 

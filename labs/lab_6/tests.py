@@ -8,7 +8,8 @@ def run_tests():
         'SHA-2 (Secure Hash Algo!@#!@#r#ithm 2,+=) is a&*_^&*%%E$^@#$!@#!@$@#@%@#$!@#!@#!@%()+_)(*&^%$#@!~ set of cryptographic hash functions designed by the United States National Security Agency (NSA)',
         '!@#%^*+_)(*_()&*I^U%Y$#@&^%$#@!~',
         '!@#%^*+_)(*_()&asjkdjfklasdfjdfjkkwerkfjqwopdfjeruicmasdfjklasdfgjkl;*   as;jasjqwepweionasdfgnasdfjklasdfnzxcvjkl; hjkasdJKLFJQWJIOER89123348IO1NHV I^U%Y$#@&^%$#@!~',
-        'приветFylhtАндрейцукйцукйцукйц1234123412341?(???(?%:()_)_^&*)_'
+        'приветFylhtАндрейцукйцукйцукйц1234123412341?(???(?%:()_)_^&*)_',
+        'test'
     ]
     for iteration, test_message in enumerate(test_messages):
         try:
