@@ -126,6 +126,10 @@ def generate_sha256_value(message: str = None) -> str:
         ]
     ).upper()
 
+    print(f"Исходное сообщение: {message}")
+    print(f"Двоичная запись исходного сообщения: {preprocessed_message}")
+    print(f"Хеш сумма сообщения: {sha256_hash}")
+    
     return sha256_hash
 
 
